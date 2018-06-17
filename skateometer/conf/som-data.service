@@ -1,0 +1,14 @@
+[Unit]
+Description=Project 1 sensor service
+After=network.target
+BindsTo=mysqld.service
+After=mysqld.service
+
+[Service]
+User=me
+Group=me
+WorkingDirectory=/home/me/skateometer/sensor
+ExecStart=/home/pieter/skateometer/env/bin/python /home/me/skateometer/sensor/SOM.py
+
+[Install]
+WantedBy=multi-user.target

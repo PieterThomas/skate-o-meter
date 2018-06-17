@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}Skate-o-Meter | Sessie menu{% endblock %}
+{% block body %}
+    <section class="o-row o-row--intro">
+        <div class="o-container">
+            <article class="o-section o-section--lg">
+                <div class="o-layout o-layout--gutter-lg o-layout--align-center">
+                    <h1 class="c-lead c-lead--xxl u-color-primary-base">Sessie menu</h1>
+                </div>
+                <div>
+                    {% for i in sessies %}
+                        <div>
+                            {{ i }}
+                        </div>
+                    {% endfor %}
+                </div>
+            </article>
+        </div>
+    </section>
+{% endblock %}

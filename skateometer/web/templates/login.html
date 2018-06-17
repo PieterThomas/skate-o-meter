@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}
+    Skate-o-Meter | Login
+{% endblock %}
+{% block body %}
+    <section class="o-row o-row--login">
+        <div class="o-container">
+            <div class="c-intro o-login">
+                <div class="c-intro__body o-layout__item">
+                    <div class="u-max-width-sm">
+                        <div class="c-image">
+                            <img src="{{ url_for("static", filename="images/skate-o-meter_logo.png") }}"
+                                 alt="Logo Skate-o-Meter">
+                        </div>
+                        <form action="" method="POST">
+                            <div>
+                                <input type="text" id="user" name="user" placeholder="Username"><br>
+                                <input type="password" id="password" name="password" placeholder="Password"><br>
+                            </div>
+                            <input name="button" type="submit" value="Login"><br>
+                            <label>Not an account yet? <a href="{{ url_for("register") }}" class="">Click here to
+                                register</a></label>
+                        </form>
+                        {% if message != "" %}
+                            {{ message }}
+                        {% endif %}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

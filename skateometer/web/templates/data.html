@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}
+Skate-o-Meter | Raw data
+{% endblock %}
+{% block body %}
+    <table class="table">
+        {% for i in columns %}
+            <th>
+                {{ i[0] }}
+            </th>
+        {% endfor %}
+        {% for i in data %}
+            <tr>
+                {% for x in i %}
+                    <td>{{ x }}</td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

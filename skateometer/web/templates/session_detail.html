@@ -1,0 +1,114 @@
+{% extends "base.html" %}
+{% block title %}Skate-o-Meter | Sessie detail{% endblock %}
+{% block body %}
+    <section class="o-row o-row--intro">
+        <div class="o-container">
+            <article class="o-section o-section--lg">
+                <div class="o-layout o-layout--gutter-lg o-layout--align-center">
+                    <div class="o-layout__item u-2-of-3-bp3">
+                        <canvas id="myChart"></canvas>
+                    </div>
+                    <div class="o-layout__item u-1-of-3-bp3">
+                        <ul>
+                            <li>
+                                <div class="o-layout o-layout--gutter-lg o-layout--align-center">
+                                    <div class="o-layout__item u-3-of-5-bp3">
+                                        Average speed:
+                                    </div>
+                                    <div class="o-layout__item u-2-of-5-bp3">
+                                        {{ info[0][0][0] }} km/h
+                                    </div>
+                                </div>
+                            </li>
+                            <div class="o-layout o-layout--gutter-lg o-layout--align-center">
+                                <div class="o-layout__item u-3-of-5-bp3">
+                                    <li>Length session:</li>
+                                </div>
+                                <div class="o-layout__item u-2-of-5-bp3">
+                                    {{ info[1][0][0] }}
+                                </div>
+                            </div>
+                            <div class="o-layout o-layout--gutter-lg o-layout--align-center">
+                                <div class="o-layout__item u-3-of-5-bp3">
+                                    <li>Minimum speed:</li>
+                                </div>
+                                <div class="o-layout__item u-2-of-5-bp3">
+                                    {{ info[2][0][0] }} km/h
+                                </div>
+                            </div>
+                            <div class="o-layout o-layout--gutter-lg o-layout--align-center">
+                                <div class="o-layout__item u-3-of-5-bp3">
+                                    <li>Maximum speed:</li>
+                                </div>
+                                <div class="o-layout__item u-2-of-5-bp3">
+                                    {{ info[3][0][0] }} km/h
+                                </div>
+                            </div>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+
+
+            <script>
+                'use strict';
+                document.addEventListener('DOMContentLoaded', function () {
+                    init();
+                });
+
+                function init() {
+                    drawChart();
+                    console.log("script gevonden")
+                }
+
+                var tijd = {{ time|safe }};
+
+                var barChartData = {
+                        labels: tijd,
+                        datasets: [
+                            {
+                                borderColor: "#0080FF",
+                                backgroundColor: "#0080FF",
+                                fill: false,
+                                label: 'Snelheid',
+                                data: {{ speed|safe }}
+                            }
+
+                        ]
+                    }
+                ;
+
+                function drawChart() {
+                    var ctx = document.getElementById('myChart').getContext('2d');
+                    var chart = new Chart(ctx, {
+                        type: 'line',
+                        data: barChartData,
+                        options: {
+                            responsive: true,
+                            legend: {
+                                position: 'top',
+                            },
+                            title: {
+                                display: true,
+                                title: 'Snelheid'
+                            },
+                            scales: {
+                                xAxes: [{
+                                    gridLines: {
+                                        display: false
+                                    }
+                                }],
+                                yAxes: [{
+                                    gridLines: {
+                                        display: false
+                                    }
+                                }]
+                            }
+                        }
+                    })
+                }
+            </script>
+        </div>
+    </section>
+
+{% endblock %}

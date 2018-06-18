@@ -7,8 +7,8 @@ After=mysqld.service
 [Service]
 User=me
 Group=me
-WorkingDirectory=/home/me/skateometer/sensor
-ExecStart=/home/pieter/skateometer/env/bin/python /home/me/skateometer/sensor/SOM.py
+WorkingDirectory=/home/me/skate-o-meter/skateometer/sensor
+ExecStart=/home/me/skate-o-meter/skateometer/env/bin/python /home/me/skate-o-meter/skateometer/sensor/SOM.py
 
 [Install]
 WantedBy=multi-user.target

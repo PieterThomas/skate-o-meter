@@ -7,8 +7,8 @@ After=mysqld.service
 [Service]
 User=me
 Group=www-data
-WorkingDirectory=/home/me/skateometer/web
-ExecStart=/usr/bin/uwsgi --ini /home/me/skateometer/conf/uwsgi-flask.ini
+WorkingDirectory=/home/me/skate-o-meter/skateometer/web
+ExecStart=/usr/bin/uwsgi --ini /home/me/skate-o-meter/skateometer/conf/uwsgi-flask.ini
 
 [Install]
 WantedBy=multi-user.target
